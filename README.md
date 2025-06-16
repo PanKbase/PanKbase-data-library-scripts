@@ -166,8 +166,8 @@ MIT License - feel free to use, modify, and distribute.
 - **Plot Rendering**: Ensure all required packages are installed
 
 ### Get Help
-- **Issues**: [GitHub Issues](https://github.com/yourusername/pankbase-analysis/issues)
-- **Questions**: [Discussions](https://github.com/yourusername/pankbase-analytsis/discussions)
+- **Issues**: [GitHub Issues](https://github.com/PanKbase/pankbase-analysis/issues)
+- **Questions**: [Discussions](https://github.com/PanKbase/pankbase-analytsis/discussions)
 - **Documentation**: Check cell comments in the notebook
 
 ---
