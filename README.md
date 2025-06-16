@@ -4,7 +4,7 @@
 
 ## Overview
 
-A comprehensive R-based Jupyter notebook for extracting, cleaning, and visualizing biomedical data from the PankBase consortium Data Library. This single-file solution (PanKBase_data_library_usecase_1.ipynb) seamlessly handles complex API interactions to deliver publication-ready analytical insights across human donor demographics, biosample characteristics, experimental assays, and downstream analysis sets.
+A comprehensive R-based Jupyter notebook for extracting, cleaning, and visualizing metadata and data from the PankBase consortium Data Library. This single-file solution (PanKBase_data_library_usecase_1.ipynb) seamlessly handles complex API interactions to deliver publication-ready analytical insights across human donor demographics, biosample characteristics, experimental assays, and downstream analysis sets.
 
 
 ## Key Features
