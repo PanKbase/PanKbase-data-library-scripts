@@ -1,10 +1,10 @@
 # PankBase Data Analytics Pipeline
 
-## 🔬 Overview
+## Overview
 
 A comprehensive R-based Jupyter notebook for extracting, cleaning, and visualizing biomedical data from the PankBase consortium database. This single notebook (`PanKBase_data_library_usecase_1.ipynb`) handles complex API interactions and produces publication-ready analytical insights from human pancreatic donor and biosample data.
 
-## ✨ Key Features
+## Key Features
 
 - **Multi-Modal Data Extraction**: Seamlessly pulls donor demographics, biosample metadata, and analysis set information
 - **One-Click Dataset Switching**: Simply change the analysis set ID to explore different research datasets
@@ -13,7 +13,7 @@ A comprehensive R-based Jupyter notebook for extracting, cleaning, and visualizi
 - **HPAP Collection Support**: Specialized extraction for Human Pancreas Analysis Program datasets
 - **Publication-Ready Visualizations**: ggplot2-based charts with medical reference lines and proper statistical annotations
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -36,7 +36,7 @@ packages <- c("httr", "jsonlite", "dplyr", "ggplot2", "DT", "plotly")
 
 *Find more dataset IDs at: https://data.pankbase.org/analysis-sets/*
 
-## 📊 What The Notebook Analyzes
+## What The Notebook Analyzes
 
 ### 1. Human Donor Demographics
 - **Age Distribution**: Histograms with statistical summaries
@@ -57,7 +57,7 @@ packages <- c("httr", "jsonlite", "dplyr", "ggplot2", "DT", "plotly")
 - **Data Completeness**: Field availability across datasets
 - **Cross-Dataset Comparisons**: How your chosen dataset compares to the full database
 
-## 🛠️ Technical Challenges Solved
+##  Technical Challenges Solved
 
 ### API Complexity
 - **Mixed Data Types**: Handles arrays, objects, and primitives in the same field
