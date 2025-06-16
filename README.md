@@ -174,6 +174,4 @@ MIT License - feel free to use, modify, and distribute.
 
 ---
 
-** Start exploring PankBase data in under 5 minutes - just change the dataset ID and run!**
-
 *Last updated: June 2025*
