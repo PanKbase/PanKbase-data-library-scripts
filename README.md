@@ -2,15 +2,14 @@
 
 ## Overview
 
-A comprehensive R-based Jupyter notebook for extracting, cleaning, and visualizing biomedical data from the PankBase consortium database. This single notebook (`PanKBase_data_library_usecase_1.ipynb`) handles complex API interactions and produces publication-ready analytical insights from human pancreatic donor and biosample data.
+A comprehensive R-based Jupyter notebook for extracting, cleaning, and visualizing biomedical data from the PankBase consortium Data Library. This single-file solution (PanKBase_data_library_usecase_1.ipynb) seamlessly handles complex API interactions to deliver publication-ready analytical insights across human donor demographics, biosample characteristics, experimental assays, and downstream analysis sets.
 
 ## Key Features
 
 - **Multi-Modal Data Extraction**: Seamlessly pulls donor demographics, biosample metadata, and analysis set information
-- **One-Click Dataset Switching**: Simply change the analysis set ID to explore different research datasets
+- **One-Click Dataset Switching**: Simply change the analysis set ID to explore different datasets
 - **API Handling**: Robust error handling for inconsistent data structures (arrays vs objects, UUIDs vs accessions)
-- **Real Data Focus**: Zero synthetic data - all visualizations use authentic research data
-- **HPAP Collection Support**: Specialized extraction for Human Pancreas Analysis Program datasets
+- **Real Data Focus**: Zero synthetic data - all visualizations use authentic data from PanKbase data library
 - **Publication-Ready Visualizations**: ggplot2-based charts with medical reference lines and proper statistical annotations
 
 ##  Quick Start
@@ -84,7 +83,7 @@ PanKBase_data_library_usecase_1.ipynb    # Main analysis notebook
 ├── Cell 7: Analysis Set Processing      # Dataset-specific analysis
 ├── Cell 8: Comparative Analysis         # Cross-dataset comparisons
 ├── Cell 9: Interactive Tables           # Searchable data exports
-└── Cell 10: load and explore the object           # search the object
+└── Cell 10: load and explore the single cell object           # search the object
 ```
 
 ## Example Outputs
