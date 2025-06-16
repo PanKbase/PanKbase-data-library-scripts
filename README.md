@@ -33,7 +33,7 @@ packages <- c("httr", "jsonlite", "dplyr", "ggplot2", "DT", "plotly")
    ```
 3. **Run all cells** - the notebook handles everything else automatically!
 
-*Find more dataset IDs at: https://data.pankbase.org/analysis-sets/*
+*Find more dataset IDs at: https://data.pankbase.org/search/?type=AnalysisSet&file_set_type=principal+analysis
 
 ## What The Notebook Analyzes
 
