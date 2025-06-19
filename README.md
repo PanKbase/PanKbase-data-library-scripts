@@ -9,11 +9,10 @@ This repository provides R-based Jupyter notebooks with examples of extracting, 
 
 ## Key Features
 
-- **Multi-Modal Data Extraction**: Seamlessly pulls donor demographics, biosample metadata, and analysis set information
-- **One-Click Dataset Switching**: Simply change the analysis set ID to explore different datasets
-- **API Handling**: Robust error handling for inconsistent data structures (arrays vs objects, UUIDs vs accessions)
-- **Real Data Focus**: Zero synthetic data - all visualizations use authentic data from PanKbase data library
-- **Publication-Ready Visualizations**: ggplot2-based charts with medical reference lines and proper statistical annotations
+- **Extract data**: Obtain donor demographics, biosample metadata, and analysis set information from the data library  
+- **API Handling**: Robust error handling for inconsistent data structures (arrays vs objects, UUIDs vs accessions)  
+- **Real Data Focus**: All examples are based on authentic data from the PanKbase data library  
+- **Visualizations**:  Generate visualiations and charts with reference lines and annotations  
 
 ##  Quick Start
 
