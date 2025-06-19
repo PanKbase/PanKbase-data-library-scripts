@@ -4,15 +4,14 @@
 
 ## Overview
 
-This repository provides R-based Jupyter notebooks with examples of extracting, cleaning, and visualizing metadata and data from the data library in PanKbase. The notebooks also provide examples of handling complex API interactions to derive insights from data across human donor demographics, biosample characteristics, experimental assays, and downstream analysis sets.  
+This repository contains R-based Jupyter notebooks that proviede examples of extracting, cleaning, and visualizing metadata and data from the data library in PanKbase. The notebooks also provide examples of handling complex API interactions to derive insights from data across human donor demographics, biosample characteristics, experimental assays, and downstream analysis sets.  
 
 
 ## Key Features
 
-- **Extract data**: Obtain donor demographics, biosample metadata, and analysis set information from the data library  
-- **API Handling**: Robust error handling for inconsistent data structures (arrays vs objects, UUIDs vs accessions)  
-- **Real Data Focus**: All examples are based on authentic data from the PanKbase data library  
-- **Visualizations**:  Generate visualiations and charts with reference lines and annotations  
+- **Extract data**: Examples of how to extract donor demographics, biosample metadata, and analysis set information from the data library  
+- **API Handling**: Examples of error handling for inconsistent data structures (arrays vs objects, UUIDs vs accessions)  
+- **Visualizations**:  Generate visualiations and charts from data with reference lines and annotations  
 
 ##  Quick Start
 
@@ -30,7 +29,7 @@ packages <- c("httr", "jsonlite", "dplyr", "ggplot2", "DT", "plotly")
    ```r
    # Base URLs - modify these to explore different datasets
    base_url <- "https://api.data.pankbase.org"
-   analysis_set_id <- "PKBDS0470WCHR"  # <-- Change this ID to explore different datasets
+   analysis_set_id <- "PKBDS0470WCHR"  # <-- Change this ID based on the dataset of interest  
    analysis_url <- paste0(base_url, "/analysis-sets/", analysis_set_id, "/")
    ```
 3. **Run all cells** - the notebook handles everything else automatically!
