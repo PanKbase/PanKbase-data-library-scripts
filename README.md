@@ -4,7 +4,7 @@
 
 ## Overview
 
-R-based Jupyter notebook that provides examples of extracting, cleaning, and visualizing metadata and data from the data library in PanKbase. This notebook also provides examples of handling complex API interactions to derive insights from data across human donor demographics, biosample characteristics, experimental assays, and downstream analysis sets.  
+This repository provides R-based Jupyter notebooks with examples of extracting, cleaning, and visualizing metadata and data from the data library in PanKbase. The notebooks also provide examples of handling complex API interactions to derive insights from data across human donor demographics, biosample characteristics, experimental assays, and downstream analysis sets.  
 
 
 ## Key Features
