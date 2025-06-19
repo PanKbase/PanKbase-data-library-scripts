@@ -1,10 +1,10 @@
-# PankBase Data Analytics Pipeline
+# PanKbase Data Library 
 
-** Start exploring PankBase data in under 5 minutes - just change the dataset ID and run!**
+** Examples of code to interface with the data library for PanKbase which can be run in under 5 minutes**  
 
 ## Overview
 
-A comprehensive R-based Jupyter notebook for extracting, cleaning, and visualizing metadata and data from the PankBase consortium Data Library. This single-file solution (PanKBase_data_library_usecase_1.ipynb) seamlessly handles complex API interactions to deliver publication-ready analytical insights across human donor demographics, biosample characteristics, experimental assays, and downstream analysis sets.
+R-based Jupyter notebook that provides examples of extracting, cleaning, and visualizing metadata and data from the data library in PanKbase. This notebook also provides examples of handling complex API interactions to derive insights from data across human donor demographics, biosample characteristics, experimental assays, and downstream analysis sets.  
 
 
 ## Key Features
