@@ -1,6 +1,6 @@
 # PanKbase Data Library 
 
-** Examples of code to interface with the data library for PanKbase which can be run in under 5 minutes**  
+**Examples of code to interface with the data library for PanKbase**  
 
 ## Overview
 
