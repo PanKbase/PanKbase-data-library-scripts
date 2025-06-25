@@ -1,6 +1,6 @@
 # PanKbase Analysis Scripts
 
-Comprehensive R-based analysis toolkit for exploring pancreatic data from the PanKbase database. This repository contains three complementary scripts for 1) snATAC metadata and single cell object exploration, and donor demographics visualization, 2) scRNA metadata and single cell object exploration, and donor demographics visualization, 3) differential expression analysis
+Comprehensive R-based analysis toolkit for exploring pancreatic data from the PanKbase Data Library. This repository contains three complementary scripts for 1) snATAC metadata and single cell object exploration, and donor demographics visualization, 2) scRNA metadata and single cell object exploration, and donor demographics visualization, 3) differential expression analysis
 
 ---
 
@@ -55,7 +55,7 @@ Performs metadata extraction and analysis for differential expression gene (DEG)
 ### System Requirements
 - **R Version:** 4.0 or higher  
 - **RAM:** 4GB minimum (8GB+ recommended)  
-- **Internet:** Stable connection for PanKbase API/S3 access  
+- **Internet:** Stable connection for PanKbase Data Library API/S3 access  
 - **Storage:** Minimal (data streams from cloud)  
 
 ### Required R Packages
@@ -129,7 +129,7 @@ packages <- c("httr", "jsonlite", "ggplot2", "dplyr", "readr", "tidyr",
 #### Dataset Not Found
 
 * Verify `ANALYSIS_SET_ID` is correct
-* Check dataset at [PanKbase Search](https://data.pankbase.org/search/)
+* Check dataset at [PanKbase Data Library Search](https://data.pankbase.org/search/)
 
 #### API Connection Problems
 
@@ -192,7 +192,7 @@ ggsave("volcano_plots.pdf", combined_plots, width = 12, height = 8, dpi = 300)
 
 ## Resources
 
-* [PanKbase Portal](https://data.pankbase.org)
+* [PanKbase Data Library](https://data.pankbase.org)
 * [Dataset Search](https://data.pankbase.org/search/)
 * [R Documentation](https://cran.r-project.org/)
 
@@ -219,4 +219,4 @@ MIT License - Free to use, modify, and distribute with attribution.
 
 **Version:** 2.0
 **Last Updated:** June 2025
-**Compatible with:** R 4.0+, PanKbase API v1
+**Compatible with:** R 4.0+, PanKbase Data Library API v1
