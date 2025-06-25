@@ -193,7 +193,6 @@ ggsave("volcano_plots.pdf", combined_plots, width = 12, height = 8, dpi = 300)
 ## Resources
 
 * [PanKbase Portal](https://data.pankbase.org)
-* [API Docs](https://api.data.pankbase.org/docs)
 * [Dataset Search](https://data.pankbase.org/search/)
 * [R Documentation](https://cran.r-project.org/)
 
