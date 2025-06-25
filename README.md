@@ -33,7 +33,7 @@ Comprehensive metadata extraction and analysis for donor demographics, sample qu
    Logs download speeds, file metadata, and load time for diagnostics.  
 
 5. **Expected Performance:**  
-   Direct streaming: 10–30 mins; local method requires space but enables reuse.  
+   Direct streaming: 10–20 mins; local method requires space but enables reuse.  
 
 ---
 
