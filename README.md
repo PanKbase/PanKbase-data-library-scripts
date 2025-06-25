@@ -1,170 +1,216 @@
-# PanKbase Data Library 
+# PanKbase Analysis Scripts
 
-**Examples of code to interface with the data library for PanKbase**  
+Comprehensive R-based analysis toolkit for exploring pancreatic data from the PanKbase database. This repository contains three complementary scripts for 1) snATAC metadata and single cell object exploration, and donor demographics visualization, 2) scRNA metadata and single cell object exploration, and donor demographics visualization, 3) differential expression analysis
 
-## Overview
+---
 
-This repository contains R-based Jupyter notebooks that proviede examples of extracting, cleaning, and visualizing metadata and data from the data library in PanKbase. The notebooks also provide examples of handling complex API interactions to derive insights from data across human donor demographics, biosample characteristics, experimental assays, and downstream analysis sets.  
+## Scripts Overview
 
+### 1. Metadata Analysis Script
+Comprehensive metadata extraction and analysis for donor demographics, sample quality metrics, and experimental parameters.
 
-## Key Features
+**Key Features:**
+- Robust API data extraction  
+- Donor demographic analysis (age, BMI, diabetes status)  
+- Sample quality metrics (yield, viability, isolation centers)  
+- Correlation analysis and visualization  
+- Configurable plot themes and parameters  
 
-- **Extract data**: Examples of how to extract donor demographics, biosample metadata, and analysis set information from the data library  
-- **API Handling**: Examples of error handling for inconsistent data structures (arrays vs objects, UUIDs vs accessions)  
-- **Visualizations**:  Generate visualiations and charts from data with reference lines and annotations  
+---
 
-##  Quick Start
+### 2. RDS Object Loading for Visualization and Downstream Analysis
 
-### Prerequisites
+1. **Direct Streaming (Recommended):**  
+   Use `readRDS(url(rds_url, open = "rb"))` with extended timeout (`options(timeout = 3600)`) to stream the ~10GB file directly from S3 into memory.  
 
-```r
-# Required R packages (automatically installed in notebook)
-packages <- c("httr", "jsonlite", "dplyr", "ggplot2", "DT", "plotly")
-```
+2. **Local Download Method:**  
+   Download with `curl` or `download.file()` and load using `readRDS(local_file)`. Requires disk space but works offline.  
 
-### Usage
+3. **Robust Error Handling:**  
+   Built-in checks for file size, network conditions, fallback mechanisms, and timing metrics.  
 
-1. **Open the notebook**: `PanKBase_data_library_usecase_1.ipynb`
-2. **Configure your dataset** (only change needed):
-   ```r
-   # Base URLs - modify these to explore different datasets
-   base_url <- "https://api.data.pankbase.org"
-   analysis_set_id <- "PKBDS0470WCHR"  # <-- Change this ID based on the dataset of interest  
-   analysis_url <- paste0(base_url, "/analysis-sets/", analysis_set_id, "/")
-   ```
-3. **Run all cells** - the notebook handles everything else automatically!
+4. **Performance Monitoring:**  
+   Logs download speeds, file metadata, and load time for diagnostics.  
 
-*Find more dataset IDs at: https://data.pankbase.org/search/?type=AnalysisSet&file_set_type=principal+analysis
+5. **Expected Performance:**  
+   Direct streaming: 10–30 mins; local method requires space but enables reuse.  
 
-## What The Notebook Analyzes
+---
 
-### 1. Human Donor Demographics
-- **Age Distribution**: Histograms with statistical summaries
-- **Sex Distribution**: Categorical breakdowns  
-- **BMI Analysis**: Medical threshold overlays (underweight/normal/overweight/obese)
-- **Diabetes Status**: Clinical classification visualization
-- **Ethnicity Patterns**: Multi-ethnic demographic analysis
+### 3. DEG Analysis Script
 
-### 2. Biosample Characterization  
-- **Tissue Types**: Anatomical classification (islets, exocrine, etc.)
-- **Preservation Methods**: Sample processing techniques
-- **Collection Protocols**: Standardized vs custom procedures
-- **Sample Quality Metrics**: Completeness and integrity scores
+Performs metadata extraction and analysis for differential expression gene (DEG) results across multiple pancreatic cell types (Alpha, Beta, Acinar, Ductal, and Active Stellate cells).
 
-### 3. Analysis Set Profiling
-- **Dataset Composition**: Sample and donor counts per study
-- **Cohort Characteristics**: Demographics specific to research collections  
-- **Data Completeness**: Field availability across datasets
-- **Cross-Dataset Comparisons**: How your chosen dataset compares to the full database
+**Key Features:**
+- Automated data loading from S3  
+- Volcano plots and summary statistics  
+- Comparative analysis across cell types  
+- Customizable statistical thresholds  
+- Publication-ready visualizations  
 
-##  Technical Challenges Solved
+---
 
-### API Complexity
-- **Mixed Data Types**: Handles arrays, objects, and primitives in the same field
-- **Inconsistent Identifiers**: UUID vs accession number resolution  
-- **Nested JSON Structures**: Recursive data extraction with safe fallbacks
-- **Rate Limiting**: Intelligent request throttling and retry logic
-
-### Data Quality Issues
-- **Missing Values**: Comprehensive NA handling strategies
-- **Duplicate Records**: UUID-based deduplication
-- **Inconsistent Formatting**: Standardized field parsing
-- **Array Flattening**: Proper handling of multi-value fields (e.g., ethnicities)
-
-##  File Structure
-
-```
-PanKBase_data_library_usecase_1.ipynb    # Main analysis notebook
-├── Cell 1: Setup & Dependencies         # Package installation
-├── Cell 2: API Helper Functions         # Core extraction utilities  
-├── Cell 3: Donor Data Extraction        # Human donor analysis
-├── Cell 4: Donor Visualizations         # Demographics plots
-├── Cell 5: Biosample Extraction         # Tissue sample analysis
-├── Cell 6: Biosample Visualizations     # Sample characteristic plots
-├── Cell 7: Analysis Set Processing      # Dataset-specific analysis
-├── Cell 8: Comparative Analysis         # Cross-dataset comparisons
-├── Cell 9: Interactive Tables           # Searchable data exports
-└── Cell 10: load and explore the single cell object           # search the object
-```
-
-## Example Outputs
-
-### Automatically Generated Visualizations
-- **Age Distribution Histogram**: Shows donor age patterns with mean/median lines
-- **BMI Categories Bar Chart**: Medical classification with obesity thresholds
-- **Diabetes Status Breakdown**: T1D, T2D, and non-diabetic proportions
-- **Sample Type Distribution**: Tissue composition analysis
-- **Data Completeness Matrix**: Field availability heatmap
-
-### Exported Data Files
-```
-pankbase_donors_[DATASET_ID].csv         # Donor demographics
-pankbase_biosamples_[DATASET_ID].csv     # Sample metadata  
-pankbase_analysis_summary_[DATASET_ID].csv # Dataset overview
-```
-
-## Customization Options
-
-### Change Dataset (Primary Use Case)
-```r
-# Simply modify this line to explore different research datasets:
-analysis_set_id <- "YOUR_DATASET_ID_HERE"
-```
-
-### Adjust Visualization Parameters
-```r
-# Modify plot aesthetics
-age_bins <- 20          # Number of age histogram bins
-bmi_threshold <- 30     # Obesity threshold line
-plot_theme <- "minimal" # ggplot theme
-```
-
-### Filter Data Subsets
-```r
-# Focus on specific populations
-target_sex <- "female"           # Gender-specific analysis
-min_age <- 18                    # Age range filtering  
-diabetes_only <- TRUE           # Diabetic donors only
-```
-
-## Important Notes
+## Prerequisites
 
 ### System Requirements
-- **R Version**: 4.0+ recommended
-- **Memory**: 4GB+ RAM for large datasets
-- **Internet**: Stable connection for API calls
-- **Jupyter**: R kernel properly configured
+- **R Version:** 4.0 or higher  
+- **RAM:** 4GB minimum (8GB+ recommended)  
+- **Internet:** Stable connection for PanKbase API/S3 access  
+- **Storage:** Minimal (data streams from cloud)  
 
-### API Limitations
-- **Rate Limiting**: ~50 requests/minute (handled automatically)
-- **Large Downloads**: Files >1GB may timeout (alternative download methods included)
-- **UUID Dependencies**: Some records require UUID access (handled transparently)
+### Required R Packages
 
-## Contributing
+```r
+# Automatically installed by scripts
+packages <- c("httr", "jsonlite", "ggplot2", "dplyr", "readr", "tidyr", 
+              "RColorBrewer", "gridExtra", "knitr", "viridis")
+````
 
-Found a bug or want to add features? 
+---
 
-1. Fork this repository
-2. Modify `PanKBase_data_library_usecase_1.ipynb`
-3. Test with multiple dataset IDs
-4. Submit a pull request with clear documentation
+## Quick Start
 
-##  License
+### Metadata Analysis
 
-MIT License - feel free to use, modify, and distribute.
+1. Set `ANALYSIS_SET_ID` to your PanKbase dataset
+2. Configure plot themes and parameters
+3. Run complete script or execute cell-by-cell
+4. Explore demographic and quality visualizations
 
-## Acknowledgments
+### DEG Analysis
 
-- **PankBase Consortium** for open data access
-- **HPAP Program** for standardized donor characterization  
+1. Set statistical thresholds in configuration section
+2. Run script for automatic analysis of all cell types
+3. Review volcano plots and summary statistics
+4. Export gene lists for functional enrichment
+---
+
+## Configuration Options
+
+| Parameter         | Default         | Description                               |
+| ----------------- | --------------- | ----------------------------------------- |
+| ANALYSIS\_SET\_ID | "PKBDS1349YHGQ" | PanKbase dataset identifier               |
+| LOG2FC\_THRESHOLD | 1.0             | Minimum fold change for significance      |
+| PVALUE\_THRESHOLD | 0.05            | Maximum adjusted p-value                  |
+| PLOT\_THEME       | "minimal"       | ggplot theme (`minimal`, `bw`, `classic`) |
+| COLOR\_PALETTE    | "Set2"          | Color scheme for visualizations           |
+| HISTOGRAM\_BINS   | 15              | Number of histogram bins                  |
+
+---
+
+## Example Datasets
+
+* `PKBDS1349YHGQ`: scRNA reference map
+* `PKBDS0470WCHR`: ATAC-seq reference map
+* `PKBDS5505XMWS`: Alpha cell-specific analysis
+
+---
+
+## Output Interpretations
+
+### Metadata Analysis
+
+* **Demographics:** Age, BMI, sex, diabetes status
+* **Sample Quality:** Yield, viability, isolation center
+* **Correlations:** Between metabolic variables
+* **UMAP Plots and Cell Distribution**
+  
+### DEG Analysis
+
+* **Volcano Plots:** Log2 fold change vs significance
+* **Summary Statistics:** Gene counts by direction
+* **Gene Lists:** Ready for enrichment analysis
+---
+
+## Troubleshooting
+
+### Common Issues
+
+#### Dataset Not Found
+
+* Verify `ANALYSIS_SET_ID` is correct
+* Check dataset at [PanKbase Search](https://data.pankbase.org/search/)
+
+#### API Connection Problems
+
+* Check your internet connection
+* Increase timeout settings
+
+#### Memory Issues
+
+* Close unused apps
+* Use `memory.limit(size = 8000)`
+* Filter data more strictly
+
+#### Package Installation
+
+* Use `install.packages("package_name")`
+* Update R
+* Ensure internet access
+
+---
+
+## Performance
+
+### Expected Runtime
 
 
-##  Support
+* **Metadata Analysis:** \~5 minutes
+* **DEG Analysis:** 2–5 minutes
+* **Streaming/Downloading single cell object:** 10–20 minutes
+    
 
-### Quick Troubleshooting
-- **API Errors**: Check internet connection and dataset ID validity
-- **Memory Issues**: Restart kernel and run cells individually
-- **Plot Rendering**: Ensure all required packages are installed
+---
+
+## Integration
+
+### Single-Cell Data
+
+```r
+# Direct S3 streaming (recommended)
+rds_url <- "https://pankbase-data-v1.s3.us-west-2.amazonaws.com/analysis_resources/single_cell_objects/PanKbase_snatac_v1.rds"
+seurat_obj <- readRDS(url(rds_url, open = "rb"))
+
+# Combine with metadata
+combined_analysis <- merge(donor_metadata, seurat_obj@meta.data, by = "donor_id")
+```
+
+---
+
+## Data Export
+
+```r
+# Export processed data
+write.csv(donor_metadata, "donor_demographics.csv", row.names = FALSE)
+write.csv(all_deg_data, "deg_results.csv", row.names = FALSE)
+
+# Save plots
+ggsave("volcano_plots.pdf", combined_plots, width = 12, height = 8, dpi = 300)
+```
+
+---
+
+## Resources
+
+* [PanKbase Portal](https://data.pankbase.org)
+* [API Docs](https://api.data.pankbase.org/docs)
+* [Dataset Search](https://data.pankbase.org/search/)
+* [R Documentation](https://cran.r-project.org/)
+
+---
+
+## Citation
+
+If you use these analysis scripts in your research, please cite:
+**pankbase.org**
+
+---
+
+## License
+
+MIT License - Free to use, modify, and distribute with attribution.
+
+---
 
 ### Get Help
 - **Issues and Questions**: [GitHub Issues](https://github.com/PanKbase/data_analysis/issues)
@@ -172,4 +218,6 @@ MIT License - feel free to use, modify, and distribute.
 
 ---
 
-*Last updated: June 2025*
+**Version:** 2.0
+**Last Updated:** June 2025
+**Compatible with:** R 4.0+, PanKbase API v1
