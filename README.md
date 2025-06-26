@@ -2,11 +2,24 @@
 
 Comprehensive R-based analysis toolkit for exploring pancreatic data from the PanKbase Data Library. This repository contains three complementary scripts for 1) snATAC metadata and single cell object exploration, and donor demographics visualization, 2) scRNA metadata and single cell object exploration, and donor demographics visualization, 3) differential expression analysis
 
+```
+PanKbase API/S3 Data
+         ↓
+Script 1 & 2: Metadata Analysis → Demographics & Quality Metrics + Object Loading → Single-Cell Data Exploration
+         ↓
+Script 3: DEG Analysis → Gene Expression Insights
+         ↓
+Combined Results: Comprehensive PanKbase Data Analysis
+```
+
 ---
 
 ## Scripts Overview
 
 ### 1. Metadata Analysis Script
+
+![scRNA](scRNA_analysis.png)
+
 Comprehensive metadata extraction and analysis for donor demographics, sample quality metrics, and experimental parameters.
 
 **Key Features:**
@@ -38,6 +51,8 @@ Comprehensive metadata extraction and analysis for donor demographics, sample qu
 ---
 
 ### 3. DEG Analysis Script
+
+![deg](deg_analysis.png)
 
 Performs metadata extraction and analysis for differential expression gene (DEG) results across multiple pancreatic cell types (Alpha, Beta, Acinar, Ductal, and Active Stellate cells).
 
