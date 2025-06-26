@@ -5,7 +5,9 @@ Comprehensive R-based analysis toolkit for exploring pancreatic data from the Pa
 ```
 PanKbase API/S3 Data
          ↓
-Script 1 & 2: Metadata Analysis → Demographics & Quality Metrics + Object Loading → Single-Cell Data Exploration
+Script 1 & 2: Metadata Analysis → Demographics & Quality Metrics 
++ 
+Object Loading → Single-Cell Data Exploration
          ↓
 Script 3: DEG Analysis → Gene Expression Insights
          ↓
